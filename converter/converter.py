@@ -1,20 +1,18 @@
-def chorus():
-    for i in range(4):
-        print('припев')
-  
-def verse(number):
-    for i in range(4):
-        print(f'куплет {number}')
+import currency_exchange
+from translate import Translator
 
-def summa(x ,s, y):
-    if s
-    print(f'Сумма {x} и {y} равна {x+y}')
+# список всех валют
+all_currencies = currency_exchange.currencies()
+# установим язык для переводдов
+translator= Translator(to_lang="ru")
 
-summa(45, 33)
-   
-# verse(1)
-# chorus()
-# verse(2)
-# chorus()
-# verse(3)
-# chorus()
+
+translated_currencies = {}  # пустой словарь
+
+for currency in all_currencies:
+    code_name = currency.split(' - ')
+    translation = translator.translate(code_name[1])
+    translated_currencies[translation] = code_name[0]
+
+print(translated_currencies)
+# print(currency_exchange.exchange("EUR", "RUB", 100))
